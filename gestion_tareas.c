@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 #include"gestion_tareas.h"
 
 int valor_identif_num();
