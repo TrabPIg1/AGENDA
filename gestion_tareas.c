@@ -21,11 +21,20 @@ typedef struct{
     printf("ERROR:No se puede abrir el fichero");
     exit(1);
   }
-  tarea prueba;
-  printf("Tipo de tarea:");
-  scanf("%s",&prueba.tipo[10]);
+  tarea nueva;
+  printf("Introducir el tipo de tarea:");
+  scanf("%s",&nueva.tipo[10]);
   getchar();
-  fprintf(tareas,"\t%s\n",&prueba.tipo[10]);
+  fprintf(tareas,"\t%s\n",&nueva.tipo[10]);
+  printf("Introducir la descripcion de la tarea:");
+  scanf("%s",&nueva.descripcion[50]);
+  getchar();
+  fprintf(tareas,"\t%s\n",&nueva.descripcion[50]);
+  printf("Introducir prioridad:");
+  scanf("%i",&nueva.prioridad);
+  getchar();
+  fprintf(tareas,"\t%i\n",&nueva.prioridad);
+  
 
 
   fclose(tareas);
