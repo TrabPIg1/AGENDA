@@ -3,7 +3,6 @@
 #include<time.h>
 #include"gestion_tareas.h"
 
-int valor_identif_num();
 
 int crear_tarea(){
 typedef struct{
