@@ -3,8 +3,6 @@
 #include<time.h>
 #include"gestion_tareas.h"
 
-
-int crear_tarea(){
 typedef struct{
   char tipo[10];
   int identif_num;
@@ -12,7 +10,11 @@ typedef struct{
   char propietario[20];
   int prioridad;
   char estado[15];
+  struct tarea *prox;
 }tarea;
+
+int crear_tarea(){
+
  
   FILE*tareas;
 
