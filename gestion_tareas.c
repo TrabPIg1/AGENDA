@@ -25,15 +25,15 @@ int crear_tarea(){
   }
   tarea nueva;
   printf("Introducir el tipo de tarea:");
-  scanf("%s",&nueva.tipo[10]);
+  scanf("%s\n",&nueva.tipo[10]);
   getchar();
   fprintf(tareas,"\t%s\n",&nueva.tipo[10]);
   printf("Introducir la descripcion de la tarea:");
-  scanf("%s",&nueva.descripcion[50]);
+  scanf("%s\n",&nueva.descripcion[50]);
   getchar();
   fprintf(tareas,"\t%s\n",&nueva.descripcion[50]);
   printf("Introducir prioridad:");
-  scanf("%i",&nueva.prioridad);
+  scanf("%i\n",&nueva.prioridad);
   getchar();
   fprintf(tareas,"\t%i\n",nueva.prioridad);
   nueva.propietario[20]=identif[20];
