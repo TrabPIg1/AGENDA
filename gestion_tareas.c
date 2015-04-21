@@ -65,11 +65,12 @@ int crear_tarea(){
 
   auxiliar=cabecera;
   while(auxiliar!=NULL){ // se pasan copian los datos en el fichero
+
     fputs(&auxiliar->tipo[10],tareas);
     fputs(&auxiliar->descripcion[50],tareas);
-    fput(&auxiliar->prioridad,tareas);
-    fput(&auxiliar->identif_num,tareas);
-    fput(&auxiliar->fecha,tareas);
+    fputc(auxiliar->prioridad,tareas);
+    fputc(auxiliar->identif_num,tareas);
+    fputc(auxiliar->fecha,tareas);
     &auxiliar=auxiliar->prox;
   }
   cabecera=liberar(cabecera);
