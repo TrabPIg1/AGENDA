@@ -27,11 +27,11 @@ int crear_tarea(){
  tarea *auxiliar=NULL;
  tarea *cabecera=NULL;
 
- cabecera=malloc(sizeof(tarea));
+ cabecera=malloc(sizeof(tarea));//reservamos memoria
   auxiliar=malloc(sizeof(tarea));
 
 
- printf("Introducir tipo de tarea:");
+ printf("Introducir tipo de tarea:"); // pedimos los datos de la nueva tarea al usuario
   scanf("%s\n",&auxiliar->tipo[10]);
   getchar();
   printf("Introducir la descripcion de la tarea:");
@@ -40,12 +40,12 @@ int crear_tarea(){
   printf("Introducir prioridad:");
   scanf("%i\n",&auxiliar->prioridad);
   getchar();
- if(strcmp(auxiliar->tipo,"con_plazo")==0){
+ if(strcmp(auxiliar->tipo,"con_plazo")==0){ // se compara el tipo introducido para pedir la fecha de terminacion
     printf("Introduce la fecha de terminación de la tarea(dd/mm/aaaa:hh:mm)");
     scanf("%i/%i/%i:%i:%i",&fecha->tm_mday,&fecha->tm_mon,&fecha->tm_year,&fecha->tm_hour,&fecha->tm_min);
-    asctime(fecha);
+    asctime(fecha); //se condensa toda la fecha en un solo dato
     tiempo=time(NULL);
-    fechalocal=localtime(&tiempo);
+    fechalocal=localtime(&tiempo);// esto nos da la fecha y hora local
     if(fechalocal>fecha)
       printf("ERROR");
     auxiliar->fecha='-';
@@ -56,7 +56,7 @@ int crear_tarea(){
 
   cabecera=auxiliar;
 
- FILE*tareas;
+ FILE*tareas;// abrimos el fichero tareas para copiar la lista
 
   if((tareas=fopen("tareas.txt","a"))==NULL){
     printf("ERROR: no se puede abrir el fichero");
@@ -80,7 +80,7 @@ int crear_tarea(){
 }
 
 
-tarea *liberar(tarea *cabecera){
+tarea *liberar(tarea *cabecera){// se recorre la lista mientras haya nodos para liberar el espacio en memoria
  
   tarea *auxiliar;
   while(cabecera!=NULL){
@@ -92,7 +92,7 @@ tarea *liberar(tarea *cabecera){
 }
 
 
-int valor_identif_num(){
+int valor_identif_num(){// esta funcion saca un identificador numerico aleatorio para la lista del 0 al 21.
 
   srand(time(NULL));
   return rand()%21;
