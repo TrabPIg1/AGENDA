@@ -1,4 +1,4 @@
-typedef struct tarea{
+struct tarea{
 char tipo[10];
 int identif_num;
 char descripcion[50];
@@ -7,8 +7,10 @@ int prioridad;
 char estado[15];
 int fecha;
 struct tarea *prox;
-}Tarea;
+};
+typedef struct tarea Tarea;
 Tarea *liberar(Tarea *cabecera);
+int cargar_tareas(Tarea**punt);
 int listar_tarea();
 int ver_tarea();
 int eliminar_tarea();
