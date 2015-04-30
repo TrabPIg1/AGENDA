@@ -85,7 +85,7 @@ int tareas_cargadas=0;
 int vacio;
 Tarea *cabecera= NULL, *auxiliar; 
 FILE *tareas; 
-if((tareas=fopen("tareas.txt","r"))==NULL){
+if((tareas=fopen("tareas.txt","a"))==NULL){
 printf("ERROR: no se puede abrir el fichero");
 exit(1);
 }
