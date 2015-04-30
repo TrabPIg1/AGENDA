@@ -7,12 +7,14 @@
 #include"pantalla.h"
 
 int main()
-{ int A=0,B=1;
+{ int A=0,B=1,b;
   char dato;
   char identif[20];
+  Tarea *cabecera;
   caracteres(3,'*',80);
   texto('*',80," GESTOR DE TAREAS DE UNA AGENDA ");
   caracteres(3,'*',80);
+  b=cargar_tareas(&cabecera);
   printf("\nIntroduzca su identificador:");
   scanf("%s",identif);
   getchar();
@@ -27,7 +29,7 @@ int main()
 	  {
 	  case '1':
 	    A++;
-	    crear_tarea();
+	    crear_tarea(identif);
 	    break;
 	  case '2':
 	    A++;
@@ -56,4 +58,3 @@ int main()
     }
     return 0;
 }
-
