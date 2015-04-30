@@ -75,3 +75,74 @@ int listar_tarea(){
 printf("\nSe ha seleccionado listar una tarea.\n");
 return 0;
 }
+
+int cargar_tareas(Tarea**punt){
+char tipo[15];
+char descripcion[50];
+int prioridad;
+int primer_lista=1; 
+int tareas_cargadas=0; 
+int vacio;
+Tarea *cabecera= NULL, *auxiliar; 
+FILE *tareas; 
+if((tareas=fopen("tareas.txt","r"))==NULL){
+printf("ERROR: no se puede abrir el fichero");
+exit(1);
+}
+fseek(tareas, 0, SEEK_END); 
+if(ftell(tareas) == 0 ){ 
+vacio= 0;
+}
+else{ fseek(tareas, 0, SEEK_SET); 
+vacio= 1;
+} 
+if(vacio==0){
+*punt= NULL; 
+printf("\n\tAVISO: Fichero de alumnos vacío.\n");
+printf("\n\n\tPulsarENTER para mostrar el menú principal: ");
+scanf("%*c");
+ exit(1);
+}
+while(!feof(tareas)){ 
+if(primer_lista== 1){
+cabecera= malloc(sizeof(Tarea));
+if(cabecera== NULL){
+printf("\nNo se ha podido reservar memoria para el nodo.\n");
+exit(1);
+} 
+fgets(tipo, 15, tareas); 
+strcpy(cabecera->tipo,tipo); 
+fgets(descripcion, 50, tareas);
+strcpy(cabecera->descripcion,descripcion); 
+fscanf(tareas,"%i",&prioridad);
+cabecera->prioridad=prioridad;
+cabecera->prox= NULL; 
+tareas_cargadas++; 
+if(feof(tareas)){
+break; 
+}
+primer_lista= 0;
+auxiliar= cabecera; 
+ } 
+if(feof(tareas)){ 
+break; 
+} 
+auxiliar->prox= malloc(sizeof(Tarea)); 
+if(auxiliar->prox== NULL){
+printf("\nNo se ha podido reservar memoria para el nodo.\n");
+exit(1);
+} 
+auxiliar=auxiliar->prox;
+fgets(tipo, 15, tareas); 
+strcpy(cabecera->tipo,tipo); 
+fgets(descripcion, 50, tareas);
+strcpy(cabecera->descripcion,descripcion); 
+fscanf(tareas,"%i",&prioridad);
+cabecera->prioridad=prioridad;
+auxiliar->prox= NULL; 
+tareas_cargadas++; 
+ }
+fclose(tareas);
+*punt= cabecera;
+return tareas_cargadas;
+}
