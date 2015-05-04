@@ -92,3 +92,29 @@ void opciones(){
   return;
 }
 
+void opciones1(){
+ printf("\n1)\t Pendientes\n");
+  printf("2)\t Terminadas\n");
+  printf("3)\t Todas\n");
+  printf("0)\t Cancelar\n");
+  printf("¿Tareas a presentar?\n");
+  return;
+}
+
+void opciones2(){
+ printf("\n1)\t Por pantalla\n");
+  printf("2)\t A fichero\n");
+  printf("0)\t Cancelar\n");
+  printf("¿Presentacion de resultado?\n");
+  return;
+}
+
+void opciones3(){
+ printf("\n1)\t Guardar cambios\n");
+  printf("2)\t Descartar cambios\n");
+  printf("0)\t Cancelar\n");
+  printf("¿Opcion?\n");
+  return;
+}
+
+
